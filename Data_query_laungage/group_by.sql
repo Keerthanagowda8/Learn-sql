@@ -37,3 +37,31 @@ order of execution: from
 select count(*),deptno from emp 
 group by deptno 
 having count(deptno)>4;
+
+-- Order by: order by clause is used to arrange the record either ascending and descending order 
+--         - It exceutes row by row
+--         - It exceutes after the exceution of select clause 
+--         - we need to write order by clause at last in query
+--         - default is ascending order
+--         - select group func/group by expression
+--           from table_name
+--           where <filter-condition>
+--           group by column_name/expression
+--           having <group_condition>
+--           order by column_name/expression [asce/desc]
+
+order of exceution: from
+                    where (row by row)
+                    group by (row by row)
+                    having(group by group)
+                    select (group by group)
+                    order by (row by row)
+
+select sal from emp 
+order by sal asc;
+
+select ename from emp 
+order by ename;
+
+select sal from emp 
+order by sal desc;
