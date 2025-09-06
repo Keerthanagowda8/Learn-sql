@@ -27,8 +27,15 @@ where emp.deptno=dept.deptno;
 --               else produce the output of cartesion join
 --             - select * from table1 natural join table2
 
+-- case1:
+
 select * from 
 emp natural join dept;
+
+-- case2:
+
+select * from 
+emp natural join cust;
 
 -- Outer join: It is used to generate matching records along with unmatching records 
 
