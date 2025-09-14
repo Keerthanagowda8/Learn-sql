@@ -26,9 +26,12 @@ where deptno in (select deptno from emp
 -- Multi row subquery: Subquery returns more than one value 
 --                   - can not use normal operator only special operator
 
-select ename from emp 
-where deptno in( select deptno from emp
-                 where ename='ALLEN');
+SELECT DNAME, LOC,DEPTNO 
+FROM DEPT 
+WHERE DEPTNO IN (SELECT DEPTNO 
+                FROM EMP 
+                WHERE ENAME LIKE '%R');
+
 
 -- Subquery operator: All
 --                    Any
@@ -52,5 +55,30 @@ where sal< Any(select sal from emp
 -- Nested subquery: A query written inside the subquery 
 --                - we can nest upto 255 subquery
 
-select max(sal) from emp 
-where sal<(select max(sal) from emp) ;
+SELECT MAX(SAL)                         -- get the 3rd max salary
+FROM EMP 
+WHERE  SAL<(SELECT MAX(SAL)             
+            FROM EMP 
+            WHERE SAL<(SELECT MAX(SAL)
+                        FROM EMP));
+
+-- Corelated subquery: A query written inside another query such that both the inner query and outer query are dependent on each other 
+--                   - outer query exceutes first and produce partcial output and it is input to the inner query.
+--                   - Then inner query exceutes completely and produce output and that is passed as an input to outer query and generates final result
+--                   - so outer query and inner query both are dependent on each other.
+
+select dname from dept 
+where deptno in(select deptno from emp 
+                where dept.deptno=emp.deptno);
+
+-- Exists: It is the uniary operator it returns true if the subquery is returning any values
+
+select dname from dept 
+where exists (select deptno from emp
+                where dept.deptno=emp.deptno);
+
+-- Not Exists: It is uninary operator it returns true if the subquery is not retutning any values
+
+select dname from dept
+where not exists (select deptno from emp 
+                 where dept.deptno=emp.deptno);
