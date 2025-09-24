@@ -1,4 +1,4 @@
--- Create : It is used to create a table inside database
+-- 1. Create : It is used to create a table inside database
 --         Create table table_name(
 --         column_name1 datatype(size) constraint, 
 --         column_name2 datatype(size) constraint,.....);
@@ -38,7 +38,7 @@ desc Product;
  CNAME                                     NOT NULL VARCHAR2(20)
  PID                                                NUMBER(3)
 
--- Alter : It is used to modify the structure of the existing table
+-- 2. Alter : It is used to modify the structure of the existing table
 
 -- 1. To add a column
 --    Alter table table_name add column_name datatype(size) constraint;
@@ -116,7 +116,7 @@ desc customer;
  CNAME                                     NOT NULL VARCHAR2(20)
  PID                                       NOT NULL NUMBER(3)
 
--- Rename : It is used to change existing table name
+-- 3. Rename : It is used to change existing table name
 --          Rename old_name to new_name;
 
 Rename Customer to Cus;
@@ -129,7 +129,7 @@ desc cus;
  CNAME                                     NOT NULL VARCHAR2(20)
  PID                                       NOT NULL NUMBER(3)
 
---  Truncate : It is used to delete all records permanently from the table
+-- 4. Truncate : It is used to delete all records permanently from the table
 --             Trancate table table_name;
 
 Truncate table cus;
@@ -145,7 +145,7 @@ Create table clerk
 as select * from emp
 where job='CLERK';
 
--- Drop : It is used to delete the table from database
+-- 5. Drop : It is used to delete the table from database
 --        Drop table table_name;
 
 Drop table clerk;
@@ -165,7 +165,7 @@ select * from RecycleBin;
 -- 2025-09-24:22:46:41    1654903                                  YES YES
 --      53464       53464        53464          8
 
--- Flashback : It is used to recover the dropped table from recycle bin
+-- 6. Flashback : It is used to recover the dropped table from recycle bin
 --             can use only if table is dropped
 
 Flashback table clerk to before drop;
@@ -180,7 +180,7 @@ select * from recyclebin;
 
 -- no rows selected
 
--- Purge : It is used to delete the table permanently from recycle bin
+-- 7. Purge : It is used to delete the table permanently from recycle bin
 --        Purge table table_name;
 
 Purge table clerk;
