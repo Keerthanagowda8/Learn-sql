@@ -1,3 +1,5 @@
+-- Data Query Laungage: This is used to retrive the data from the database 
+
 -- Select: process to retrive data from the table and display it 
    ------
 --         Select clause is responsible for preparing the research table 
