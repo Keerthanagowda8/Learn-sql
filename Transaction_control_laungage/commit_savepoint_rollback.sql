@@ -17,8 +17,7 @@ commit;
 select * from emp where deptno=10;
 -- to see the changes
 
-
-
+----------------------------------------------------------------------------------------
 
 -- 2. Savepoint: It is used to mark the transcation
 --               Savepoint savepoint_name;
@@ -34,7 +33,7 @@ select * from emp where deptno=30;
 -- to see the changes
 -- now we can rollback to savepoint sp1 or rollback all the changes
 
-
+----------------------------------------------------------------------------------------
 
 -- 3. Rollback: It is used to perform undo operation 
 --              Rollback to savepoint savepoint_name;
